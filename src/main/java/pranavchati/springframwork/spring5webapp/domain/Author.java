@@ -1,6 +1,7 @@
 package pranavchati.springframwork.spring5webapp.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -18,17 +19,16 @@ public class Author {
     private String lastName;
 
     @ManyToMany(mappedBy = "authors")
-    private Set<Book> books;
+    private Set<Book> books = new HashSet<>();
 
     //Constructor
     public Author() {
 
     }
 
-    public Author(String fname, String lname, Set<Book> bks) {
+    public Author(String fname, String lname) {
         firstName = fname;
         lastName = lname;
-        books = bks;
     }
 
     //Getter and Setter
